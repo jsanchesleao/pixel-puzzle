@@ -102,10 +102,13 @@ export default function PuzzleMaker({
           <label>Change puzzle size</label>
           <button className="puzzleMaker-sizeButton" onClick={setSize(5, 5)}>5x5</button>
           <button className="puzzleMaker-sizeButton" onClick={setSize(10, 10)}>10x10</button>
+          <button className="puzzleMaker-sizeButton" onClick={setSize(10, 15)}>10x15</button>
           <button className="puzzleMaker-sizeButton" onClick={setSize(15, 10)}>15x10</button>
           <button className="puzzleMaker-sizeButton" onClick={setSize(15, 15)}>15x15</button>
+          <button className="puzzleMaker-sizeButton" onClick={setSize(15, 20)}>15x20</button>
           <button className="puzzleMaker-sizeButton" onClick={setSize(20, 15)}>20x15</button>
           <button className="puzzleMaker-sizeButton" onClick={setSize(20, 20)}>20x20</button>
+          <button className="puzzleMaker-sizeButton" onClick={setSize(20, 25)}>20x25</button>
           <button className="puzzleMaker-sizeButton" onClick={setSize(25, 20)}>25x20</button>
           <button className="puzzleMaker-sizeButton" onClick={setSize(25, 25)}>25x25</button>
         </div>
