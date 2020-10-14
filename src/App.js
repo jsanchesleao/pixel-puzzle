@@ -6,13 +6,15 @@ import {
 } from "react-router-dom";
 import './App.css'
 
+import {homepage} from '../package.json';
+
 import HomePage from './pages/HomePage';
 import MakerPage from './pages/MakerPage';
 import PlayerPage from './pages/PlayerPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename={homepage}>
       <Switch>
         <Route path="/make">
           <MakerPage />
