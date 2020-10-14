@@ -1,12 +1,10 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 import './App.css'
-
-import {homepage} from '../package.json';
 
 import HomePage from './pages/HomePage';
 import MakerPage from './pages/MakerPage';
@@ -14,7 +12,7 @@ import PlayerPage from './pages/PlayerPage';
 
 function App() {
   return (
-    <Router basename={homepage}>
+    <Router>
       <Switch>
         <Route path="/make">
           <MakerPage />
