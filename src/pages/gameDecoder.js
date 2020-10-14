@@ -30,7 +30,7 @@ export function decodeGameCode(gameCode) {
   for(let i = 0; i < height; i++) {
     hints.push([]);
     for(let j = 0; j < width; j++) {
-      const index = i * height + j;
+      const index = i * width + j;
       const value = hintsList[index] === undefined ? '' : hintsList[index];
       hints[i].push(value);
     }
