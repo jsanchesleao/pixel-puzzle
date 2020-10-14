@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "28d3d2e6e1c5260c989fe9b571d37078",
+    "revision": "df212ac92de7a314fd1d1c44659ea8b4",
     "url": "/pixel-puzzle/index.html"
   },
   {
-    "revision": "9b311d2dec395083e2a7",
+    "revision": "8e3c20e4de08f6351553",
     "url": "/pixel-puzzle/static/css/main.b88b8896.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pixel-puzzle/static/js/2.897d06f1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9b311d2dec395083e2a7",
-    "url": "/pixel-puzzle/static/js/main.2bf99c1a.chunk.js"
+    "revision": "8e3c20e4de08f6351553",
+    "url": "/pixel-puzzle/static/js/main.7cb65231.chunk.js"
   },
   {
     "revision": "f263c07ca6be4e9e5a32",
