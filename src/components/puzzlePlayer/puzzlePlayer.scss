@@ -1,0 +1,165 @@
+.enterGame-navigation {
+  margin: 20px 0;
+  a {
+    font-family: sans-serif;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin: 15px 30px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      box-shadow: 0 0 5px blue;
+      color: darkblue;
+    }
+  }
+}
+
+.enterGameContainer {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  width: 50%;
+  margin: 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px black;
+  border-radius: 8px;
+  background-color: #eef;
+}
+
+.enterGame-text {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 24px;
+  margin: 0;
+}
+
+.enterGame-input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 30px;
+  padding: 10px;
+  font-size: 12px;
+  border: 2px solid darkblue;
+  border-radius: 5px;
+  background-color: #525252;
+  color: white;
+}
+
+.enterGame-button {
+  width: auto;
+  font-size: 24px;
+  background-color: darkblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 3px black;
+  padding: 8px 18px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 6px blue;
+  }
+}
+
+
+
+.puzzlePlayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.puzzlePlayer-controls {
+  box-sizing: border-box;
+  background-color: darkblue;
+  padding: 20px;
+  box-shadow: 0 0 5px black;
+  margin: 0;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.puzzlePlayer-resetButton,
+.puzzlePlayer-backButton {
+  font-family: sans-serif;
+  font-size: 18px;
+  border: none;
+  box-shadow: 0 0 5px black;
+  margin: 0 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: black;
+
+  &:hover {
+    box-shadow: 0 0 8px blue;
+    color: darkblue;
+  }
+}
+
+.puzzlePlayer-player {
+  flex:1 ;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &.--small {
+    transform: scale(.8) translateY(-100px);
+  }
+}
+
+.puzzlePlayer-cell {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  box-shadow: inset 0 0 3px black;
+  float: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 18px;
+  color: black;
+  user-select: none;
+
+  &.--painted {
+    background: rgb(70,65,65);
+    background: radial-gradient(circle, #353535 0%, black 100%);
+    color: white;
+  }
+
+  &.--crossed {
+    background: linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 44%, rgba(171,171,171,1) 47%, rgba(159,159,159,1) 53%, rgba(255,255,255,0) 56%, rgba(255,255,255,0) 100%), 
+                linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 44%, rgba(171,171,171,1) 47%, rgba(159,159,159,1) 53%, rgba(255,255,255,0) 56%, rgba(255,255,255,0) 100%);
+  }
+}
+
+.puzzlePlayer-separator {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  clear: both;
+}

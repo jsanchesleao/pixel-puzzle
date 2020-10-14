@@ -1,0 +1,152 @@
+.puzzleMaker {
+  margin: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.puzzleMaker-floatingAction {
+  position: fixed;
+  z-index: 2;
+  top: 20px;
+  right: 10px;
+  a {
+    font-family: sans-serif;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin: 0 50px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      box-shadow: 0 0 5px blue;
+      color: darkblue;
+    }
+  }
+}
+
+.puzzleMaker-controls {
+  background-color: darkblue;
+  width: 300px;
+  box-shadow: 0 0 5px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.puzzleMaker-sizes {
+  margin: 30px 15px;
+  label {
+    display: block;
+    color: white;
+    font-size: 18px;
+    font-family: sans-serif;
+    margin: 10px;
+  }
+}
+
+.puzzleMaker-sizeButton {
+  width: 25%;
+  padding: 10px;
+  margin: 2px 2px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.puzzleMaker-optimize,
+.puzzleMaker-reset {
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.puzzleMaker-maker {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.puzzleMaker-board {
+}
+
+.puzzleMaker-cell {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  box-shadow: inset 0 0 3px black;
+  float: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 18px;
+  color: black;
+
+  &.--painted {
+    background: rgb(70,65,65);
+    background: radial-gradient(circle, #353535 0%, black 100%);
+    color: white;
+  }
+}
+
+.puzzleMaker-rowSeparator {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  height: 0;
+  clear: both;
+}
+
+.puzzleMaker-gameCode {
+  position: absolute;
+  bottom: 20px;
+  right:20px;
+  padding: 8px;
+  font-family: sans-serif;
+  border: 1px solid black;
+  font-size: 14px;
+  display: inline-block;
+  background-color: lightgray;
+  cursor: pointer;
+  width: 60%;
+
+  transform: translateX(80%);
+  transition: transform .3s ease-in-out;
+
+  &::before {
+    content: 'Game Code';
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 12px;
+    color: white;
+    background-color: black;
+    padding: 2px 15px;
+  }
+
+  &:hover {
+    transform: translateX(0);
+  }
+
+  p {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+  }
+}
