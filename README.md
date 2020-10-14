@@ -1,3 +1,3 @@
 # Pixel Puzzle
 
-Play here: 
+[Play Here](https://jsanchesleao.github.io/pixel-puzzle/)
