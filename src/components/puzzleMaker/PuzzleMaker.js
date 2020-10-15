@@ -53,27 +53,8 @@ export default function PuzzleMaker({
 
   function generateNumbers() {
     const solver = new SolveBoard(pixels, width, height);
-    let finalHints = countHints(hints) > 0 ? hints : solver.generateHints();
-    for(let i = 0; i < Math.min(width * height * 10, 1000); i++) {
-      const newHints = solver.generateHints();
-      if (countHints(newHints) === 0) {
-        alert('impossible figure for our current algorithm');
-        return;
-      }
-      if (!finalHints || (countHints(newHints) < countHints(finalHints))) {
-        finalHints = newHints;
-      }
-      console.log('Optimization Round: ' + i + ' \t\t size is: ' + countHints(finalHints));
-    }
-    onChangeHints( finalHints );
-  }
-
-  function countHints(hints) {
-    return Object.values(hints)
-      .map(Object.values)
-      .map(row => row.filter(hint => hint !== null))
-      .map(row => row.length)
-      .reduce((a, b) => a + b, 0)
+    const refinedHints = solver.generateRefinedHints();
+    onChangeHints( refinedHints );
   }
 
   const setSize = (width, height) => (e) => {

@@ -6,16 +6,25 @@ export class SolveBoard {
     this.height = height;
   }
 
-  generateHints() {
+  _generateHints(refineStep) {
     this._initializeCells();
     const refineResult = this._refineHints();
     if (refineResult === 'success') {
+      refineStep();
       const hints = this._extractHints();
       return hints;
     }
     else {
       return {};
     }
+  }
+
+  generateHints() {
+    return this._generateHints(() => {});
+  }
+
+  generateRefinedHints() {
+    return this._generateHints(() => this._removeUnnecessaryHints());
   }
 
 
@@ -49,7 +58,7 @@ export class SolveBoard {
 
     while(true) {
       roundCount++;
-      const candidates = this._cells.filter( cell => cell.canBeSolved());
+      const candidates = this._cells.filter( cell => cell.canBeSolved() );
       const solved = this._cells.filter( cell => cell.isSolved() );
       if (solved.length === this._cells.length) {
         return 'success';
@@ -65,6 +74,37 @@ export class SolveBoard {
         const randomCandidate = candidates[randomIndex];
         randomCandidate.solve();
       }
+    }
+  }
+
+  _removeUnnecessaryHints() {
+    this._cells
+      .filter(cell => cell._needsHint)
+      .forEach(cell => this._attemptToRemoveHint(cell));
+  }
+
+  _attemptToRemoveHint(cell) {
+    cell._needsHint = false;
+    this._cells.forEach(c => c.clear());
+    let result = null;
+    while(!result) {
+      const next = this._cells.find(cell => cell._needsHint && cell.canBeSolved());
+      console.log('checking', next);
+      if (next) {
+        next.solve();
+      }
+      const solvedCount = this._cells.filter(cell => cell.isSolved()).length;
+      const solvableCount = this._cells.filter(cell => cell._needsHint && cell.canBeSolved()).length;
+      console.log('solved: ' + solvedCount + '; canBeSolved: ' + solvableCount + '; total: ' + this._cells.length);
+      if (solvedCount === this._cells.length) {
+        result = 'success';
+      }
+      else if (solvableCount === 0) {
+        result = 'impossible';
+      }
+    }
+    if (result === 'impossible') {
+      cell._needsHint = true;
     }
   }
 
@@ -139,6 +179,7 @@ class SolveCell {
 
   solve() {
     if (!this.canBeSolved()) {
+      console.log('cannot solve cell', this);
       throw new Error('Attempted to solve an impossible cell', this);
     }
     this._needsHint = true;
@@ -159,6 +200,10 @@ class SolveCell {
 
   cross() {
     this._state = 'crossed';
+  }
+
+  clear() {
+    this._state = 'blank';
   }
 
   isPainted() {
