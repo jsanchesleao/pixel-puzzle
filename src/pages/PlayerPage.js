@@ -19,7 +19,6 @@ export default function PlayerPage() {
     window.sessionStorage['puzzlePlayer'] = JSON.stringify({game});
   }, [game])
 
-
   function startGame() {
     try {
       const {width, height, hints} = decodeGameCode(gameCode);
